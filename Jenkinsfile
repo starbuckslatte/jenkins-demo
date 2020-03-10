@@ -1,4 +1,5 @@
 // node('haimaxy-jnlp') {
+node {
     stage('Prepare') {
         echo "1.Prepare Stage123456"
         checkout scm
@@ -32,4 +33,4 @@
         sh "sed -i 's/<BRANCH_NAME>/${env.BRANCH_NAME}/' k8s.yaml"
         sh "kubectl apply -f k8s.yaml --record"
     }
-// }
+}
