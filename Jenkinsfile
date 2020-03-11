@@ -11,7 +11,7 @@ node {
             }
             // build_tag = "kkk"
             echo "build_tag"
-            echo build_tag
+            echo ${build_tag}
         }
     }
     stage('Test') {
