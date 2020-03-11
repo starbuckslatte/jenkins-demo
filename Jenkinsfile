@@ -10,8 +10,6 @@ node {
                 build_tag = "${env.BRANCH_NAME}-${build_tag}"
             }
             // build_tag = "kkk"
-            echo "build_tag"
-            echo ${build_tag}
         }
     }
     stage('Test') {
@@ -20,7 +18,7 @@ node {
     stage('Build') {
         echo "3.Build Docker Image Stage"
         // sh "docker build -t cnych/jenkins-demo:${build_tag} ."
-        bat "docker build -t cnych/jenkins-demo:${build_tag} ."
+        bat "docker build -t cnych\jenkins-demo:${build_tag} ."
     }
     stage('Push') {
         echo "4.Push Docker Image Stage"
@@ -28,10 +26,10 @@ node {
         //     sh "docker login -u ${dockerHubUser} -p ${dockerHubPassword}"
         //     sh "docker push cnych/jenkins-demo:${build_tag}"
         // }
-        withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-            bat "docker login -u ${dockerHubUser} -p ${dockerHubPassword}"
-            bat "docker push cnych/jenkins-demo:${build_tag}"
-        }
+        // withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        //     bat "docker login -u ${dockerHubUser} -p ${dockerHubPassword}"
+        //     bat "docker push cnych/jenkins-demo:${build_tag}"
+        // }
     }
     stage('Deploy') {
         echo "5. Deploy Stage"
