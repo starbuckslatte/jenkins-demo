@@ -18,7 +18,7 @@ node {
     stage('Build') {
         echo "3.Build Docker Image Stage"
         // sh "docker build -t cnych/jenkins-demo:${build_tag} ."
-        bat "docker build -t cnych\jenkins-demo:${build_tag} ."
+        bat "docker build -t cnych/jenkins-demo:${build_tag} ."
     }
     stage('Push') {
         echo "4.Push Docker Image Stage"
