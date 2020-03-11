@@ -1,7 +1,7 @@
 // node('haimaxy-jnlp') {
 node {
     stage('Prepare') {
-        echo "1.Prepare Stage1234"
+        echo "1.Prepare Stage12345"
         checkout scm
         script {
             // build_tag = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
