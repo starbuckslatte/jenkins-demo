@@ -10,6 +10,8 @@ node {
                 build_tag = "${env.BRANCH_NAME}-${build_tag}"
             }
             // build_tag = "kkk"
+            echo "build_tag"
+            echo build_tag
         }
     }
     stage('Test') {
